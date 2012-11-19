@@ -5,7 +5,8 @@ class PaymentsController < ApplicationController
     @payments_received = @current_user.payments_received
   end
   
-  def create 
+  def create
+  	raise "You can't send a payment to youself." if params[:payment][:recipient_id].to_i == @current_user.id
     @payment = Payment.create(params[:payment])
     redirect_to :root
   end

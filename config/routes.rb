@@ -12,10 +12,19 @@ Paymo::Application.routes.draw do
 
   root :to => 'payments#home'
 
+  #payments
+  get 'pay' => 'payments#home', :as => 'pay'
+
+  #login
   get 'login' => 'login#login', :as => 'login'
   get 'logout' => 'login#logout', :as => 'logout'
   get 'go_facebook' => 'login#go_facebook', :as => 'go_facebook'
   get 'facebook_callback' => 'login#facebook_callback', :as => 'facebook_callback'
+
+  #user
+  get 'my/account/cards/edit' => 'users#edit_cards', :as => 'edit_cards'
+  put 'my/account/cards' => 'users#edit_cards_confirm', :as => 'edit_cards_confirm'
+
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   resources :users, :payments
