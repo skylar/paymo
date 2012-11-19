@@ -1,23 +1,46 @@
 <h2>Welcome <%= @current_user.name %>!</h2>
-<br/>
-<br/>
-<br/>
-
-<%= link_to 'Edit Cards and Bank Accounts', edit_cards_path %>
 
 
-<p>You can pay the following people:</p>
+<div class="row">
 
-<ul>
-  <% @users.each do |u| %>
-    <div class="row">
-      <%= form_for Payment.new, :html => {:class => "well span3 form-horizontal"} do |f| %>
-        <%= u.name %>
-        <%= f.hidden_field :recipient_id, value: u.id %>
-        <%= f.hidden_field :sender_id, value: @current_user.id %>        
-        <%= f.text_field :amount%>
-        <%= f.submit 'Pay' %>
-      <% end %>
-    </div>
-  <% end %>
-</ul>
+  <div class="span5">
+  <h4>Pay Someone</h4>
+
+  <ul>
+    <% @users.each do |u| 
+      next if u.id == @current_user.id
+      %>
+      <div class="row">
+        <div class="span4">
+        <%= form_for Payment.new, :html => {:class => "well form-horizontal"} do |f| %>
+          <div style="font-size:120%;font-weight:300"><%= u.name %></div>
+
+          <br>
+          <%= f.hidden_field :recipient_id, value: u.id %>
+          <%= f.hidden_field :sender_id, value: @current_user.id %>        
+          <div class="input-prepend"><span class="add-on">$</span>
+            <%= f.text_field :amount, class:'input-small'%>
+          </div>
+          <%= f.submit 'Pay', class:'btn btn-info' %>
+        <% end %>
+        </div>
+      </div>
+    <% end %>
+  </ul>
+  </div>
+
+  <div class="span3 offset3 well">
+    <h3>Your Account</h3>
+
+    <p class="lead">
+      <%= @current_user.payments_sent.length %> payments sent<br>
+      <%= @current_user.payments_received.length %> payments received
+    </p>
+
+    <p><b>Credit Card</b> <%=raw account_info_validation(@current_user.has_credit_card) %></p>
+    <p><b>Bank Account</b> <%=raw account_info_validation(@current_user.has_bank_account) %></p>
+
+    <%= link_to 'Edit Cards and Bank Accounts', edit_cards_path %>
+  <div>
+
+</div>
