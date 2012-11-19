@@ -1,3 +1,21 @@
 Welcome <%= @current_user.name %>!
+<br/>
+<br/>
+<br/>
 
-<p>pay</p>
+
+You can pay the following people
+
+<ul>
+  <% @users.each do |u| %>
+    <div class="row">
+      <%= form_for Payment.new, :html => {:class => "well span3 form-horizontal"} do |f| %>
+        <%= u.name %>
+        <%= f.hidden_field :recipient_id, value: u.id %>
+        <%= f.hidden_field :sender_id, value: @current_user.id %>        
+        <%= f.text_field :amount%>
+        <%= f.submit 'Pay' %>
+      <% end %>
+    </div>
+  <% end %>
+</ul>
