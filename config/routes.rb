@@ -13,6 +13,7 @@ Paymo::Application.routes.draw do
   root :to => 'payments#home'
 
   get 'login' => 'login#login', :as => 'login'
+  get 'logout' => 'login#logout', :as => 'logout'
   get 'go_facebook' => 'login#go_facebook', :as => 'go_facebook'
   get 'facebook_callback' => 'login#facebook_callback', :as => 'facebook_callback'
 
