@@ -1,5 +1,23 @@
 <h2>Welcome <%= @current_user.name %>!</h2>
+<br/>
+<br/>
+<br/>
 
 <%= link_to 'Edit Cards and Bank Accounts', edit_cards_path %>
 
-<p>pay</p>
+
+<p>You can pay the following people:</p>
+
+<ul>
+  <% @users.each do |u| %>
+    <div class="row">
+      <%= form_for Payment.new, :html => {:class => "well span3 form-horizontal"} do |f| %>
+        <%= u.name %>
+        <%= f.hidden_field :recipient_id, value: u.id %>
+        <%= f.hidden_field :sender_id, value: @current_user.id %>        
+        <%= f.text_field :amount%>
+        <%= f.submit 'Pay' %>
+      <% end %>
+    </div>
+  <% end %>
+</ul>

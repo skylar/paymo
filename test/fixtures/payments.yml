@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  payer_id: 1
+  payee_id: 1
+  amount: 1
+
+two:
+  payer_id: 1
+  payee_id: 1
+  amount: 1

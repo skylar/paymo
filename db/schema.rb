@@ -13,6 +13,15 @@
 
 ActiveRecord::Schema.define(:version => 20121119024853) do
 
+  create_table "payments", :force => true do |t|
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.integer  "amount"
+    t.string   "description"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "fb_id"
