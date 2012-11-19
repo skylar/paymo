@@ -14,6 +14,7 @@ Paymo::Application.routes.draw do
 
   get 'login' => 'login#login', :as => 'login'
   get 'go_facebook' => 'login#go_facebook', :as => 'go_facebook'
+  get 'facebook_callback' => 'login#facebook_callback', :as => 'facebook_callback'
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   resources :users  
