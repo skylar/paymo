@@ -21,9 +21,16 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+
 gem 'jquery-rails'
 
 gem 'koala'
+
+
+# Twitter Bootstrap, for pretty default tempates
+gem 'therubyracer'              # less seems to depend on this. not sure why less-rails doesn't include this.
+gem 'less-rails-bootstrap'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
