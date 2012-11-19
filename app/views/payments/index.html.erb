@@ -1,0 +1,30 @@
+<h2>Sent</h2>
+<table>
+  <th>Recipient</th>
+  <th>Amount</th>    
+  <th>Date</th>  
+  <% @payments_sent.each do |p|%>
+    <tr>    
+      <td><%= p.recipient.name %>
+      <td><%= p.amount %></td>
+      <td><%= p.created_at %></td>        
+    </tr>    
+  <% end %>
+</table>
+
+<h2>Received</h2>
+<table>
+  <th>Sender</th>
+  <th>Amount</th>    
+  <th>Date</th>  
+
+  <% @payments_received.each do |p|%>
+  <tr>    
+    <td><%= p.sender.name %></td>
+    <td><%= p.amount %></td>
+    <td><%= p.created_at %></td>        
+  </tr>    
+  <% end %>
+
+</table>
+
