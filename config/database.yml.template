@@ -7,7 +7,6 @@ development:
   adapter: postgresql
   database: paymo_development
   pool: 5
-  timeout: 5000
   encoding: UTF-8
   pool: 5
   username: admin
