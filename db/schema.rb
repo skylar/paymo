@@ -11,13 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121119013918) do
+ActiveRecord::Schema.define(:version => 20121119024853) do
 
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "fb_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "cc_number"
+    t.string   "cc_year"
+    t.string   "cc_month"
+    t.string   "bank_routing"
+    t.string   "bank_account"
   end
 
 end
