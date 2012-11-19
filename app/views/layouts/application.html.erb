@@ -14,15 +14,20 @@
 	    	<div class="container">
 		      <div class="brand">Paymo</div>
 
-			    <ul class="nav">		  
-						<li >logout</li>
+			    <ul class="nav">
+			    	<% if @current_user.nil? %>
+							<li><%= link_to 'login', login_path %></li>
+						<% else %>
+							<li><%= link_to 'logout', logout_path %></li>
+						<% end %>
 					</ul>
 
 	    	</div>
+	    </div>
 		</div>
-	</div>
 
 	<%= yield %>
+	</div>
 
 </div>
 

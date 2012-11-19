@@ -14,6 +14,13 @@ class LoginController < ApplicationController
 
 	end
 
+	def logout
+		session[:fb_access_token] = nil
+		session[:user_id] = nil
+
+		redirect_to login_url
+	end
+
 	def go_facebook
 		session[:fb_access_token] = nil
 		session[:user_id] = nil
