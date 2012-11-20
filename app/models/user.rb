@@ -20,10 +20,17 @@ class User < ActiveRecord::Base
   def has_bank_account
   	unless !bank_account.nil? && bank_account.length > 7 && 
       !bank_routing.nil? && bank_routing.length > 7
-
   		false
   	else
   		true
   	end
+  end
+  
+  def balanced_account 
+    Balanced::Account.find_by_email(self.email)    
+  end
+  
+  def has_balanced_account? 
+    !balanced_account.nil?
   end
 end

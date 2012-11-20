@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121119024853) do
+ActiveRecord::Schema.define(:version => 20121120192001) do
 
   create_table "payments", :force => true do |t|
     t.integer  "sender_id"
@@ -32,6 +32,9 @@ ActiveRecord::Schema.define(:version => 20121119024853) do
     t.string   "cc_month"
     t.string   "bank_routing"
     t.string   "bank_account"
+    t.string   "email"
   end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
 
 end
