@@ -20,16 +20,40 @@
 		</div>
 
 		<div class="span4 offset1 well">
-			<h3>Checking Account</h3>
+			<div class="well">
+				<h3>Checking Account</h3>
 
-			<div class="controls">
-				<%= u.label :bank_account, 'Account Number' %>
-				<%= u.text_field :bank_account %>
+				<div class="controls">
+					<%= u.label :bank_account, 'Account Number' %>
+					<%= u.text_field :bank_account %>
+				</div>
+
+				<div class="controls">
+					<%= u.label :bank_routing, 'Routing Number' %>
+					<%= u.text_field :bank_routing %>
+				</div>
 			</div>
 
-			<div class="controls">
-				<%= u.label :bank_routing, 'Routing Number' %>
-				<%= u.text_field :bank_routing %>
+			<div class="well">
+				<h3>Address</h3>
+
+				<div class="controls">
+					<%= u.label :street_address, 'Street Address' %>
+					<%= u.text_field :street_address %>
+				</div>
+
+				<div class="controls">
+					<%= u.label :postal_code, 'Postal Code' %>
+					<%= u.text_field :postal_code %>
+				</div>
+				<div class="controls">
+					<%= u.label :dob, 'Date of Birth' %>
+					<%= u.text_field :dob %>
+				</div>
+				<div class="controls">
+					<%= u.label :phone_number, 'Phone Number' %>
+					<%= u.text_field :phone_number %>
+				</div>
 			</div>
 		</div>
 

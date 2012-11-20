@@ -25,6 +25,9 @@ Paymo::Application.routes.draw do
   get 'my/account/cards/edit' => 'users#edit_cards', :as => 'edit_cards'
   put 'my/account/cards' => 'users#edit_cards_confirm', :as => 'edit_cards_confirm'
 
+  #payments
+  post 'payments/process' => 'payments#process_queue', :as => 'process_payments_queue'
+
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   resources :users, :payments

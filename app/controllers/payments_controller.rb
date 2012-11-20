@@ -15,4 +15,11 @@ class PaymentsController < ApplicationController
     @users = User.all
 	end
 
+	def process_queue
+		::BalancedManager::process_queue
+
+		redirect_to :root		
+	end
+
+
 end
