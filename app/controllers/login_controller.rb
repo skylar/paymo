@@ -62,7 +62,7 @@ class LoginController < ApplicationController
 private 
 
 	def _register_user
-		user = User.create(name: @fb_user['name'], fb_id: @fb_user['id'])
+		user = User.create(name: @fb_user['name'], fb_id: @fb_user['id'], email: @fb_user['email'])
 		session[:user_id] = user.id
 	end
 end
