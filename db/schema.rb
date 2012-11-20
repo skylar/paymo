@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121119024853) do
+ActiveRecord::Schema.define(:version => 20121120190936) do
 
   create_table "payments", :force => true do |t|
     t.integer  "sender_id"
@@ -25,13 +25,19 @@ ActiveRecord::Schema.define(:version => 20121119024853) do
   create_table "users", :force => true do |t|
     t.string   "name"
     t.string   "fb_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.string   "cc_number"
     t.string   "cc_year"
     t.string   "cc_month"
     t.string   "bank_routing"
     t.string   "bank_account"
+    t.string   "balanced_uri",   :limit => 128
+    t.string   "street_address"
+    t.string   "postal_code"
+    t.string   "country_code"
+    t.string   "dob"
+    t.string   "phone_number"
   end
 
 end

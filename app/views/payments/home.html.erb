@@ -29,7 +29,8 @@
   </ul>
   </div>
 
-  <div class="span3 offset3 well">
+  <div class="span3 offset3">
+    <div class="well">
     <h3>Your Account</h3>
 
     <p class="lead">
@@ -41,6 +42,9 @@
     <p><b>Bank Account</b> <%=raw account_info_validation(@current_user.has_bank_account) %></p>
 
     <%= link_to 'Edit Cards and Bank Accounts', edit_cards_path %>
+    </div>
+
+    <%= button_to 'Process Payment Queue', process_payments_queue_path, class: 'btn btn-warning' %>
   <div>
 
 </div>

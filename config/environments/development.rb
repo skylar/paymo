@@ -34,4 +34,7 @@ Paymo::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+
+  Balanced::configure('0231d60a334311e28dc3026ba7c1aba6')
 end
