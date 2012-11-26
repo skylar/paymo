@@ -6,6 +6,11 @@
   <div class="span5">
   <h4>Pay Someone</h4>
 
+  <% can_pay = @current_user.has_credit_card %>
+  <% unless can_pay %>
+    <p class="lead" style="color:brown">You cannot make payments without a valid credit card on file.</p>
+  <% end %>
+
   <ul>
     <% @users.each do |u| 
       next if u.id == @current_user.id
@@ -21,7 +26,7 @@
           <div class="input-prepend"><span class="add-on">$</span>
             <%= f.text_field :amount, class:'input-small'%>
           </div>
-          <%= f.submit 'Pay', class:'btn btn-info' %>
+          <%= f.submit 'Pay', class:'btn btn-info', disabled:(can_pay ? nil : 'diabled') %>
         <% end %>
         </div>
       </div>

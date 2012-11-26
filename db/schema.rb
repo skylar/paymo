@@ -11,15 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121120192001) do
+ActiveRecord::Schema.define(:version => 20121126070438) do
 
   create_table "payments", :force => true do |t|
     t.integer  "sender_id"
     t.integer  "recipient_id"
     t.integer  "amount"
     t.string   "description"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+    t.string   "debit_transaction_uri",  :limit => 128
+    t.string   "credit_transaction_uri", :limit => 128
   end
 
   create_table "users", :force => true do |t|
@@ -32,13 +34,13 @@ ActiveRecord::Schema.define(:version => 20121120192001) do
     t.string   "cc_month"
     t.string   "bank_routing"
     t.string   "bank_account"
-    t.string   "email"
     t.string   "balanced_uri",   :limit => 128
     t.string   "street_address"
     t.string   "postal_code"
     t.string   "country_code"
     t.string   "dob"
     t.string   "phone_number"
+    t.string   "email"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

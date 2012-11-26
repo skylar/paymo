@@ -1,0 +1,15 @@
+default: &default
+    :key: 29a76b30378c11e28862026ba7f8ec28
+development:
+  <<: *default
+
+staging:
+  <<: *default
+
+production:
+  <<: *default
+
+
+test:
+  <<: *default
+
